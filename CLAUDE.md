@@ -21,8 +21,9 @@ So the recurring visual is **a mill whose sails scoop up flowing wind lines.**
 
 - **`index.html`** is the working file — keep iterating here.
   - Structure: topbar → hero (catchphrase) → palette → **Fase 1 (het beeld)** → **Fase 2 (op het shirt)** → footer notes.
-  - Two mill symbols: `#mill` (clean/simple — used by kids + topbar) and `#mill-detail` (same silhouette plus engraving shading: tower hatching, cap boarding, gallery brackets — used by the **adults** front only). Both draw with `currentColor`, so colour comes from the `--ink` CSS var on the nearest `.adult`/`.kids` ancestor. If you change one mill's base geometry, change both. The adult standalone `art-adults.svg` inlines the detailed version (its shading group lives just before the mill `</g>`).
-  - Two concepts share styling via ancestor classes: **`.adult`** (heritage, Playfair, thin engraving lines) and **`.kids`** (Fredoka, thick lines, smiling mill). The same artwork markup appears in both the Fase 1 panels and the Fase 2 shirt cards.
+  - **The mill is the org's real, official logo mill** — vectorized from `assets/DKM-logo-master.jpg` (their hand-drawn lookalike `#mill`/`#mill-detail` are retired; `#mill` survives only as the tiny topbar icon). The vector mill lives as `<g id="mill-logo">`: two stacked tone layers — grey tower at `opacity="0.42"` + black linework at full ink, both `fill="currentColor"`, so it takes the `--ink` colour of the nearest `.adult`/`.kids` ancestor and recolours per shirt. It is placed into the 440×660 artwork with `transform="translate(34 132) scale(0.235)"`.
+  - **Fase 1 panels** just `<img src="art-adults.svg">` / `art-kids.svg` (fixed colour, always matches the print files). **Fase 2 shirt cards** inline `<use href="#mill-logo">` so the colour-swatch script can recolour them. Don't hand-edit the mill paths — regenerate via `tools/build_art.py`.
+  - Two concepts share styling via ancestor classes: **`.adult`** (heritage, Playfair, thin green wind swirls) and **`.kids`** (Fredoka, green `pakken!`, bold green gusts + dots). Same official mill in both; the kid/adult difference is type + wind treatment, not the mill.
   - The shirt-colour swatches are wired in the `<script>` at the bottom (`.card .swatch`); the Fase 1 panels are intentionally fixed-colour (no swatches).
 - `kerkhovense-molen-tshirt-concepts.html` is the older draft — leave it; `index.html` supersedes it.
 
@@ -30,7 +31,12 @@ So the recurring visual is **a mill whose sails scoop up flowing wind lines.**
 
 - Front: `art-adults.svg` / `art-kids.svg`. Back (typographic): `art-adults-back.svg` / `art-kids-back.svg`. These are the **editable sources** (live `<text>`, reference Google Fonts).
 - `*-print.svg` are the **hand-to-printer** copies: text converted to vector outlines, no font dependency, transparent background. `index.html` download links point to these.
-- To regenerate the `*-print.svg` after editing any source's text, re-run `/tmp/outline.py` (needs `fonttools`; fonts cached in `/tmp/fonts` — Playfair Display, Fredoka, Arimo≈Arial). It maps each `art-*.svg` → `art-*-print.svg`, replacing `<text>` in document order, so keep the four text blocks (ph1, ph2, wm1, wm2) in that order. Always verify a regenerated file has `<text>:0` and no `@import`.
+- Regeneration pipeline (scripts in `tools/`):
+  - `python3 tools/build_art.py` rebuilds `art-adults.svg`/`art-kids.svg` from the traced mill (`tools/millA.svg` = tower tone, `tools/millB.svg` = linework) + catchphrase + wind + wordmark. Edit copy/wind/placement there, not in the generated SVGs.
+  - `python3 tools/outline.py` maps each `art-*.svg` → `art-*-print.svg`, replacing `<text>` in document order (keep the four blocks ph1, ph2, wm1, wm2 in that order) and stripping the font `@import`. Needs `fonttools`; fonts cached in `/tmp/fonts` (Playfair Display, Fredoka, Arimo≈Arial).
+  - Always verify a regenerated `*-print.svg` has `<text>:0` and no `@import`.
+- The mill was vectorized once from `assets/DKM-logo-master.jpg` with `potrace` (two masks: black linework + grey tower). To re-trace, see the "Official logo" section in README.md.
+- **Logo-usage caveat:** the brandbook forbids modifying/combining the logo without permission. We recolour it (brand palette, per shirt) and pair it with the slogan, keeping proportions. It's the org's own merch, but flag for bestuur sign-off before print.
 
 ## Hard brand rules (from the brandbook — do not break)
 

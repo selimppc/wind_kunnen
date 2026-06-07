@@ -105,6 +105,21 @@
       <path d="M34 -10 V10 M52 -10 V10 M70 -10 V10 M88 -10 V10 M106 -10 V10 M124 -10 V10 M142 -10 V10" fill="none" stroke="currentColor"/>
     </g>
     <circle cx="220" cy="275" r="9" fill="currentColor"/>
+    <!-- engraving shading: tower shadow side, cap boarding, gallery brackets -->
+    <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.4" stroke-linecap="round">
+      <path d="M250 446 L266 564"/>
+      <path d="M258 446 L274 562"/>
+      <path d="M266 450 L281 558"/>
+      <path d="M240 326 L250 424"/>
+      <path d="M247 328 L257 422"/>
+      <path d="M196 270 Q220 262 244 270"/>
+      <path d="M186 291 Q220 283 254 291"/>
+      <path d="M181 307 Q220 300 259 307"/>
+      <path d="M176 444 L182 455"/>
+      <path d="M206 444 L210 457"/>
+      <path d="M234 444 L230 457"/>
+      <path d="M264 444 L258 455"/>
+    </g>
   </g>
 
   <!-- brickwork hint -->

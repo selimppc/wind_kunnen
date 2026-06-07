@@ -21,7 +21,7 @@ So the recurring visual is **a mill whose sails scoop up flowing wind lines.**
 
 - **`index.html`** is the working file — keep iterating here.
   - Structure: topbar → hero (catchphrase) → palette → **Fase 1 (het beeld)** → **Fase 2 (op het shirt)** → footer notes.
-  - One reusable `<symbol id="mill">` (a *stellingmolen* with gallery) is `<use>`d everywhere — edit it once to change every mill. It draws with `currentColor`, so colour comes from the `--ink` CSS var on the nearest `.adult`/`.kids` ancestor.
+  - Two mill symbols: `#mill` (clean/simple — used by kids + topbar) and `#mill-detail` (same silhouette plus engraving shading: tower hatching, cap boarding, gallery brackets — used by the **adults** front only). Both draw with `currentColor`, so colour comes from the `--ink` CSS var on the nearest `.adult`/`.kids` ancestor. If you change one mill's base geometry, change both. The adult standalone `art-adults.svg` inlines the detailed version (its shading group lives just before the mill `</g>`).
   - Two concepts share styling via ancestor classes: **`.adult`** (heritage, Playfair, thin engraving lines) and **`.kids`** (Fredoka, thick lines, smiling mill). The same artwork markup appears in both the Fase 1 panels and the Fase 2 shirt cards.
   - The shirt-colour swatches are wired in the `<script>` at the bottom (`.card .swatch`); the Fase 1 panels are intentionally fixed-colour (no swatches).
 - `kerkhovense-molen-tshirt-concepts.html` is the older draft — leave it; `index.html` supersedes it.

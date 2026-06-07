@@ -70,9 +70,9 @@ open index.html
 - [x] Print-ready standalone SVGs per variant (front)
 - [x] Text converted to vector outlines — `*-print.svg` need no fonts
 - [x] Back-print option (typographic), both variants, outlined
+- [x] Refined mill: engraving detail for adults (`#mill-detail`), clean mill kept for kids
 - [ ] Pick the direction with the chairman / bestuur
 - [ ] Confirm front/back, quantities, deadline
-- [ ] (Stretch) refine the mill toward the logo's engraving detail
 
 ### Regenerating the outlined `*-print.svg`
 

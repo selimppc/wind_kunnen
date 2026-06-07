@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  De Kerkhovense Molen — ACHTERKANT (optie) — KIDS
+  Print-ready vector. Brandbook colours only: Molenbruin #412F26, Tuingroen #7B9B6F.
+  NB voor de drukker: zet de tekst om naar outlines (Fredoka / Arial).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300" role="img" aria-label="Achterkant — Wind kunnen we pakken (kinderen)">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&amp;display=swap');
+      .ph  { font-family:"Fredoka","Trebuchet MS",sans-serif; }
+      .ph1 { fill:#412F26; font-size:24px; font-weight:600; }
+      .ph2 { fill:#7B9B6F; font-size:42px; font-weight:700; }
+      .wm  { fill:#412F26; font-family:"Helvetica Neue",Arial,sans-serif; }
+      .wm1 { font-size:14px; font-weight:700; letter-spacing:1.6px; }
+      .wm2 { font-size:8.4px; letter-spacing:.8px; opacity:.85; }
+      .flo { fill:none; stroke:#7B9B6F; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .flo circle { fill:#7B9B6F; stroke:none; }
+    </style>
+  </defs>
+
+  <text x="300" y="64"  text-anchor="middle" class="ph ph1">Brood en lucht kun je bakken</text>
+  <text x="300" y="120" text-anchor="middle" class="ph ph2">Wind kunnen we pakken!</text>
+
+  <g class="flo">
+    <path d="M206 152 C252 132 282 168 300 152 C318 168 348 132 394 152"/>
+    <circle cx="190" cy="152" r="4"/>
+    <circle cx="410" cy="152" r="4"/>
+  </g>
+
+  <text x="300" y="232" text-anchor="middle" class="wm wm1">DE KERKHOVENSE MOLEN</text>
+  <text x="300" y="250" text-anchor="middle" class="wm wm2">OISTERWIJK · NATUURLIJK GEZOND · SINDS 1369</text>
+</svg>

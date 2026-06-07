@@ -26,6 +26,12 @@ So the recurring visual is **a mill whose sails scoop up flowing wind lines.**
   - The shirt-colour swatches are wired in the `<script>` at the bottom (`.card .swatch`); the Fase 1 panels are intentionally fixed-colour (no swatches).
 - `kerkhovense-molen-tshirt-concepts.html` is the older draft — leave it; `index.html` supersedes it.
 
+## Export / print files
+
+- Front: `art-adults.svg` / `art-kids.svg`. Back (typographic): `art-adults-back.svg` / `art-kids-back.svg`. These are the **editable sources** (live `<text>`, reference Google Fonts).
+- `*-print.svg` are the **hand-to-printer** copies: text converted to vector outlines, no font dependency, transparent background. `index.html` download links point to these.
+- To regenerate the `*-print.svg` after editing any source's text, re-run `/tmp/outline.py` (needs `fonttools`; fonts cached in `/tmp/fonts` — Playfair Display, Fredoka, Arimo≈Arial). It maps each `art-*.svg` → `art-*-print.svg`, replacing `<text>` in document order, so keep the four text blocks (ph1, ph2, wm1, wm2) in that order. Always verify a regenerated file has `<text>:0` and no `@import`.
+
 ## Hard brand rules (from the brandbook — do not break)
 
 - **Only these four colours. No neon, nothing off-palette** — this is an explicit

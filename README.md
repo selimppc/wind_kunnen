@@ -29,9 +29,10 @@ This is also a trial: doing it well is meant to lead to a follow-on **website pr
 
 | File | Description |
 |---|---|
-| [`index.html`](index.html) | **Main deliverable.** Both concepts as clean vector (SVG): Fase 1 (the image) + Fase 2 (on the shirt, with interactive shirt-colour preview) + download links. |
-| [`art-adults.svg`](art-adults.svg) | Print-ready standalone artwork — adults / mill-fanatics (transparent background). |
-| [`art-kids.svg`](art-kids.svg) | Print-ready standalone artwork — kids (transparent background). |
+| [`index.html`](index.html) | **Main deliverable.** Both concepts as clean vector (SVG): Fase 1 (the image) + Fase 2 (on the shirt, with interactive shirt-colour preview) + Achterkant option + download links. |
+| `art-adults.svg` / `art-kids.svg` | Front artwork — **editable source** (live text, needs the fonts). |
+| `art-adults-back.svg` / `art-kids-back.svg` | Back artwork (typographic) — editable source. |
+| `*-print.svg` (×4) | **Hand-to-printer versions** — text converted to vector outlines, transparent background, no font dependency. These are what the page links to download. |
 | `kerkhovense-molen-tshirt-concepts.html` | Earlier draft, kept for reference. |
 | `2026-02-14 … Brandbook.pdf` | Official huisstijl: logo, palette, voice & tone, do's/don'ts. |
 | `Horrible.jpeg` / `worse.jpeg` | The earlier AI attempts (off-brand) — kept as "before" references. |
@@ -66,8 +67,16 @@ open index.html
 ## Status & next steps
 
 - [x] Phase 1 — the image, both variants, on-brand
-- [x] Print-ready standalone SVGs per variant ([`art-adults.svg`](art-adults.svg), [`art-kids.svg`](art-kids.svg))
+- [x] Print-ready standalone SVGs per variant (front)
+- [x] Text converted to vector outlines — `*-print.svg` need no fonts
+- [x] Back-print option (typographic), both variants, outlined
 - [ ] Pick the direction with the chairman / bestuur
-- [ ] Final print step: convert text → outlines (Playfair / Fredoka / Arial) before sending to printer
 - [ ] Confirm front/back, quantities, deadline
 - [ ] (Stretch) refine the mill toward the logo's engraving detail
+
+### Regenerating the outlined `*-print.svg`
+
+The outliner script lives at `/tmp/outline.py` (uses `fonttools`; fonts cached in
+`/tmp/fonts`). It reads each editable `art-*.svg`, converts `<text>` to glyph paths,
+strips the font `@import`, and writes the matching `*-print.svg`. Re-run after editing
+any source artwork's text.
